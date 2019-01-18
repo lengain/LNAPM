@@ -1,0 +1,27 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - LNAPM (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - LNAPM (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  LNAPM:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  LNAPM: e6497573f8d993696d7abb3057d52d85e0ac0257
+
+PODFILE CHECKSUM: baa6885005bf065240acf8fc751e1c4bbfac00a9
+
+COCOAPODS: 1.5.3

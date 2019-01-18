@@ -1,0 +1,6 @@
+framework module LNAPM {
+  umbrella header "LNAPM-umbrella.h"
+
+  export *
+  module * { export * }
+}

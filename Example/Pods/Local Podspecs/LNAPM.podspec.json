@@ -1,0 +1,22 @@
+{
+  "name": "LNAPM",
+  "version": "0.1.0",
+  "summary": "A short description of LNAPM.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/lengain@qq.com/LNAPM",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "lengain@qq.com": "lengain@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/lengain@qq.com/LNAPM.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "LNAPM/Classes/**/*"
+}

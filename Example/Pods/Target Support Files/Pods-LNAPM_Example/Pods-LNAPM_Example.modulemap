@@ -1,0 +1,6 @@
+framework module Pods_LNAPM_Example {
+  umbrella header "Pods-LNAPM_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
