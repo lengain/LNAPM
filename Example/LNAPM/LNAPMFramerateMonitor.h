@@ -18,8 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
  frames per second
  */
 @property (nonatomic, assign, readonly) NSInteger framerate;
-
-- (void)startOutputFramerate:(void (^)(NSInteger framerate))framerate;
+- (void)startOutput;
+- (void)startOutputFramerate:(nullable void (^)(NSInteger framerate))framerate;
 - (void)stop;
 
 @end

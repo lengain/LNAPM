@@ -29,6 +29,8 @@
 		EC91790F21F2D08B001FE2BE /* LNAPMFramerateMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = EC91790E21F2D08B001FE2BE /* LNAPMFramerateMonitor.m */; };
 		EC91791421F2D318001FE2BE /* LNAPMProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = EC91791321F2D318001FE2BE /* LNAPMProvider.m */; };
 		EC91791721F31BDC001FE2BE /* LNFramerateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC91791621F31BDC001FE2BE /* LNFramerateTableViewController.m */; };
+		ECB42C9A223654B600A3F4AF /* LNAPMRAMMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB42C99223654B600A3F4AF /* LNAPMRAMMonitor.m */; };
+		ECF35EBD22129BB00049BFDD /* LNAPMCPUMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF35EBC22129BB00049BFDD /* LNAPMCPUMonitor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,10 @@
 		EC91791321F2D318001FE2BE /* LNAPMProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LNAPMProvider.m; path = LNAPMClass/LNAPMProvider.m; sourceTree = "<group>"; };
 		EC91791521F31BDC001FE2BE /* LNFramerateTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFramerateTableViewController.h; sourceTree = "<group>"; };
 		EC91791621F31BDC001FE2BE /* LNFramerateTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFramerateTableViewController.m; sourceTree = "<group>"; };
+		ECB42C98223654B600A3F4AF /* LNAPMRAMMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNAPMRAMMonitor.h; sourceTree = "<group>"; };
+		ECB42C99223654B600A3F4AF /* LNAPMRAMMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNAPMRAMMonitor.m; sourceTree = "<group>"; };
+		ECF35EBB22129BB00049BFDD /* LNAPMCPUMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNAPMCPUMonitor.h; sourceTree = "<group>"; };
+		ECF35EBC22129BB00049BFDD /* LNAPMCPUMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNAPMCPUMonitor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				EC91791021F2D0F2001FE2BE /* ExampleClass */,
-				EC91790821F2CA97001FE2BE /* LNAPMClass */,
+				EC91790821F2CA97001FE2BE /* LNAPM */,
 				6003F59C195388D20070C39A /* LNAppDelegate.h */,
 				6003F59D195388D20070C39A /* LNAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -214,7 +220,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		EC91790821F2CA97001FE2BE /* LNAPMClass */ = {
+		EC91790821F2CA97001FE2BE /* LNAPM */ = {
 			isa = PBXGroup;
 			children = (
 				EC91790921F2CF70001FE2BE /* LNAPM.h */,
@@ -224,10 +230,14 @@
 				EC91790B21F2CF9D001FE2BE /* LNAPMManager.m */,
 				EC91790D21F2D08B001FE2BE /* LNAPMFramerateMonitor.h */,
 				EC91790E21F2D08B001FE2BE /* LNAPMFramerateMonitor.m */,
+				ECF35EBB22129BB00049BFDD /* LNAPMCPUMonitor.h */,
+				ECF35EBC22129BB00049BFDD /* LNAPMCPUMonitor.m */,
+				ECB42C98223654B600A3F4AF /* LNAPMRAMMonitor.h */,
+				ECB42C99223654B600A3F4AF /* LNAPMRAMMonitor.m */,
 				EC91791221F2D318001FE2BE /* LNAPMProvider.h */,
 				EC91791321F2D318001FE2BE /* LNAPMProvider.m */,
 			);
-			name = LNAPMClass;
+			name = LNAPM;
 			sourceTree = "<group>";
 		};
 		EC91791021F2D0F2001FE2BE /* ExampleClass */ = {
@@ -447,6 +457,8 @@
 				6003F59E195388D20070C39A /* LNAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* LNViewController.m in Sources */,
 				EC91790721F2CA80001FE2BE /* LNAPMMonitorLayer.m in Sources */,
+				ECF35EBD22129BB00049BFDD /* LNAPMCPUMonitor.m in Sources */,
+				ECB42C9A223654B600A3F4AF /* LNAPMRAMMonitor.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				EC91790C21F2CF9D001FE2BE /* LNAPMManager.m in Sources */,
 				EC91791421F2D318001FE2BE /* LNAPMProvider.m in Sources */,

@@ -57,6 +57,10 @@ static NSString *UITableViewCellReuseId = @"LNFramerateTableViewController.UITab
     return cell;
 }
 
+- (void)dealloc {
+    NSLog(@"dfasfadfafaf");
+}
+
 /*
 
 */

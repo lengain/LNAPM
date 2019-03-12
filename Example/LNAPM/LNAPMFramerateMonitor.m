@@ -49,7 +49,11 @@
     return self;
 }
 
-- (void)startOutputFramerate:(void (^)(NSInteger))framerate {
+- (void)startOutput {
+    [self startOutputFramerate:nil];
+}
+
+- (void)startOutputFramerate:(nullable void (^)(NSInteger framerate))framerate {
     self.framerateOutput = framerate;
     if (self.framerateOutput) {
         self.framerateOutput(self.expectFramesPerSecond);

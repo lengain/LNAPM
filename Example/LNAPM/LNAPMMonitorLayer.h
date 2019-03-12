@@ -7,12 +7,12 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "LNAPMFramerateMonitor.h"
+#import "LNAPM.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LNAPMMonitorLayer : CALayer
+@interface LNAPMMonitorLayer : CALayer <LNAPMManagerMonitorDelegate>
 
-@property (nonatomic, strong) CATextLayer *framerateText;
+@property (nonatomic, strong) CATextLayer *textLayer;
 
 @end
 

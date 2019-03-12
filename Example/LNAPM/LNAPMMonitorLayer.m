@@ -7,44 +7,58 @@
 //
 
 #import "LNAPMMonitorLayer.h"
-
+#import "LNAPMRAMMonitor.h"
 @implementation LNAPMMonitorLayer
 
 - (instancetype)init {
     if (self = [super init]) {
-        
-        [self addSublayer:self.framerateText];
-        LNAPMFramerateMonitor *monitor = [[LNAPMFramerateMonitor alloc] init];
-        __weak __typeof(self) weakSelf = self;
-        [monitor startOutputFramerate:^(NSInteger framerate) {
-            weakSelf.framerateText.string = [NSString stringWithFormat:@" FPS:%ld",(long)framerate];
-        }];
+        [self addSublayer:self.textLayer];
     }
     return self;
 }
 
 - (void)layoutSublayers {
     [super layoutSublayers];
-    self.framerateText.frame = self.bounds;
+    self.textLayer.frame = self.bounds;
 }
 
-- (CATextLayer *)framerateText {
-    if (!_framerateText) {
-        _framerateText = [CATextLayer layer];
+#pragma mark - LNAPMManagerMonitorDelegate
+
+- (void)manager:(LNAPMManager *)manager monitorOutput:(NSDictionary<LNAPMMonitorKey,id> *)output {
+    NSMutableString *content = [[NSMutableString alloc] init];
+    if (manager.monitorOptions & LNAPMMonitorOptionFramerate || manager.monitorOptions & LNAPMMonitorOptionAll) {
+        [content appendFormat:@" FPS:%@\n",[output objectForKey:LNAPMMonitorFramerateKey]];
+    }
+    if (manager.monitorOptions & LNAPMMonitorOptionCPUUsage || manager.monitorOptions & LNAPMMonitorOptionAll) {
+        [content appendFormat:@" CPU usage:%@%%\n",[output objectForKey:LNAPMMonitorCPUUsageKey]];
+    }
+    if (manager.monitorOptions & LNAPMMonitorOptionMemoryUsage || manager.monitorOptions & LNAPMMonitorOptionAll) {
+        LNAPMRAMMonitor *ramMonitor = [output objectForKey:LNAPMMonitorMemoryUsageKey];
+        [content appendFormat:@" RAM usage:%.1fMiB\n",ramMonitor.used/(1024 * 1024)];
+    }
+    NSLog(@"%@",output);
+    self.textLayer.string = content;
+}
+
+#pragma mark - Getter
+
+- (CATextLayer *)textLayer {
+    if (!_textLayer) {
+        _textLayer = [CATextLayer layer];
         //set text attributes
-        _framerateText.foregroundColor = [UIColor blackColor].CGColor;
-        _framerateText.alignmentMode = kCAAlignmentJustified;
-        _framerateText.wrapped = YES;
-        _framerateText.contentsScale = [UIScreen mainScreen].scale;
+        _textLayer.foregroundColor = [UIColor redColor].CGColor;
+        _textLayer.alignmentMode = kCAAlignmentLeft;
+        _textLayer.wrapped = YES;
+        _textLayer.contentsScale = [UIScreen mainScreen].scale;
         
-        UIFont *font = [UIFont systemFontOfSize:15];
+        UIFont *font = [UIFont systemFontOfSize:12];
         CFStringRef fontName = (__bridge CFStringRef)font.fontName;
         CGFontRef fontRef = CGFontCreateWithFontName(fontName);
-        _framerateText.font = fontRef;
-        _framerateText.fontSize = font.pointSize;
+        _textLayer.font = fontRef;
+        _textLayer.fontSize = font.pointSize;
         CGFontRelease(fontRef);
     }
-    return _framerateText;
+    return _textLayer;
 }
 
 @end

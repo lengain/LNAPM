@@ -8,6 +8,7 @@
 
 #import "LNViewController.h"
 #import "LNAPMMonitorLayer.h"
+#import "LNAPMManager.h"
 @interface LNViewController ()
 
 @end
@@ -21,6 +22,11 @@
     monitorLayer.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3].CGColor;
     monitorLayer.frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height + [UIApplication sharedApplication].statusBarFrame.size.height, 200, 100);
     [[UIApplication sharedApplication].keyWindow.layer addSublayer:monitorLayer];
+    
+    [LNAPMManager manager].monitorOptions = LNAPMMonitorOptionAll;
+    [LNAPMManager manager].monitorDelegate = monitorLayer;
+    [[LNAPMManager manager] startMonitor];
+    
 }
 
 - (void)didReceiveMemoryWarning
