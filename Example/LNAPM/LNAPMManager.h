@@ -23,7 +23,7 @@ typedef NSString* LNAPMMonitorKey;
 FOUNDATION_EXTERN LNAPMMonitorKey const LNAPMMonitorFramerateKey;
 FOUNDATION_EXTERN LNAPMMonitorKey const LNAPMMonitorCPUUsageKey;
 FOUNDATION_EXTERN LNAPMMonitorKey const LNAPMMonitorMemoryUsageKey;
-
+FOUNDATION_EXTERN LNAPMMonitorKey const LNAPMMonitorMemoryTotalUsageKey;
 
 typedef void(^LNAPMMonitorOutputBlock)(NSDictionary <LNAPMMonitorKey,id>*output);
 

@@ -12,10 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LNAPMRAMMonitor : NSObject
 
-@property (nonatomic, assign, readonly) CGFloat used;
-@property (nonatomic, assign, readonly) CGFloat total;
-
-- (void)refreshRAMUsage;
++ (CGFloat)totalRAM;
++ (CGFloat)usedMemory;
 
 @end
 

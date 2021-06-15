@@ -37,6 +37,7 @@
 LNAPMMonitorKey const LNAPMMonitorFramerateKey = @"LNAPMMonitorFramerate";
 LNAPMMonitorKey const LNAPMMonitorCPUUsageKey = @"LNAPMMonitorCPUUsage";
 LNAPMMonitorKey const LNAPMMonitorMemoryUsageKey = @"LNAPMMonitorMemoryUsage";
+LNAPMMonitorKey const LNAPMMonitorMemoryTotalUsageKey = @"LNAPMMonitorMemoryTotalUsageKey";
 
 @interface LNAPMManager ()
 
@@ -121,9 +122,8 @@ LNAPMMonitorKey const LNAPMMonitorMemoryUsageKey = @"LNAPMMonitorMemoryUsage";
         [output setObject:@([LNAPMCPUMonitor CPUUsage]) forKey:LNAPMMonitorCPUUsageKey];
     }
     if (self.monitorOptions & LNAPMMonitorOptionMemoryUsage || self.monitorOptions & LNAPMMonitorOptionAll) {
-        LNAPMRAMMonitor *ramMonitor = [[LNAPMRAMMonitor alloc] init];
-        [ramMonitor refreshRAMUsage];
-        [output setObject:ramMonitor forKey:LNAPMMonitorMemoryUsageKey];
+        [output setObject:@([LNAPMRAMMonitor usedMemory]) forKey:LNAPMMonitorMemoryUsageKey];
+        [output setObject:@([LNAPMRAMMonitor totalRAM]) forKey:LNAPMMonitorMemoryTotalUsageKey];
     }
     
     if (self.monitorDelegate && [self.monitorDelegate respondsToSelector:@selector(manager:monitorOutput:)]) {

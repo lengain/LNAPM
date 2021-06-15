@@ -33,8 +33,10 @@
         [content appendFormat:@" CPU usage:%@%%\n",[output objectForKey:LNAPMMonitorCPUUsageKey]];
     }
     if (manager.monitorOptions & LNAPMMonitorOptionMemoryUsage || manager.monitorOptions & LNAPMMonitorOptionAll) {
-        LNAPMRAMMonitor *ramMonitor = [output objectForKey:LNAPMMonitorMemoryUsageKey];
-        [content appendFormat:@" RAM usage:%.1fMiB\n",ramMonitor.used/(1024 * 1024)];
+        NSNumber *RAMUsage = [output objectForKey:LNAPMMonitorMemoryUsageKey];
+        NSNumber *totalRAMUsage = [output objectForKey:LNAPMMonitorMemoryTotalUsageKey];
+        [content appendFormat:@" RAM usage:%.1fMiB\n",[RAMUsage floatValue]/(1024 * 1024)];
+        [content appendFormat:@" Total RAM:%.1fGiB\n",[totalRAMUsage floatValue]/(1024 * 1024 * 1024)];
     }
     NSLog(@"%@",output);
     self.textLayer.string = content;
